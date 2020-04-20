@@ -1,3 +1,25 @@
+# Serein
+
+Admin dashboard template with:
+
+- React
+- React Router
+- Redux
+- Bootstrap
+- sass
+
+## Available features
+
+_TODOS_
+
+- [ ] Themes
+- [ ] Dark - Light - Solarized modes
+- [ ] Theme customizer tool
+- [ ] Sortable tables
+- [ ] WYSIWYG editor
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
