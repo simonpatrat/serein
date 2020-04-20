@@ -7,6 +7,9 @@ html {
 
 .App {
   padding-top: 56px;
+  &.without-header-nav {
+    padding: 0;
+  }
 }
 
 .navbar-search-wrapper {
@@ -44,12 +47,52 @@ html {
 }
 
 .sidebar-nav li .nav-link {
-  color: #333;
-  font-weight: 500;
+  color: var(--sidebar-menu-link);
+}
+
+.sidebar {
+  .nav-link,
+  .sidebar-nav__btn--collapse {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-link {
+    justify-content: flex-start;
+    &.active {
+      color: var(--sidebar-menu-link-active)
+    }
+  }
+
+  .sidebar-nav__btn--collapse {
+    justify-content: space-between;
+  }
+
+  .sidebar-nav__btn--collapse__text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .nav-link__icon,
+  .sidebar-nav__btn--collapse__icon {
+    margin-right: 0.8rem;
+    font-size: 20px;
+  }
+
+
 }
 
 main {
   padding-top: 70px;
+
+  &.full-page-centered-content {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 }
 
 .card--form {

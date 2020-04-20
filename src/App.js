@@ -44,7 +44,7 @@ function App() {
           {!shouldDipslaySideBarNav && (
             <main
               role="main"
-              className="col-md-12 ml-sm-auto col-lg-12 px-4 d-flex align-content-center justify-content-center"
+              className="col-md-12 ml-sm-auto col-lg-12 d-flex align-content-center justify-content-center full-page-centered-content"
             >
               <Routes />
             </main>

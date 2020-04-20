@@ -96,6 +96,9 @@ $theme-colors: map-merge(
     "light-paper": $solarized-light,
     "light-paper-darken": $solarized-light-darken,
     "dark": $dark,
+    "text": $dark,
+    "sidebar-menu-link": $dark,
+    "sidebar-menu-link-active": $primary,
   ),
   $theme-colors
 );
