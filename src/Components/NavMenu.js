@@ -1,32 +1,40 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { NavLink as RRNavLink } from "react-router-dom";
 import {
+  Button,
   Collapse,
   Input,
   Label,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
-  NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
 
-const NavMenu = (props) => {
+import Icon from "./Icon";
+
+const NavMenu = ({ onClickSidebarToggleButton }) => {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
 
   return (
-    <Navbar color="light-paper-darken" light expand="md" className="fixed-top">
+    <Navbar
+      color="light-paper-darken"
+      light
+      expand="md"
+      className="fixed-top"
+      id="main-navbar"
+    >
       <div className="col-md-2">
-        <NavbarBrand to="/" exact className="mr-3" tag={RRNavLink}>
-          Serein
-        </NavbarBrand>
+        <Button onClick={onClickSidebarToggleButton} color="lib">
+          <span className="sr-only">Toggle sidebar mini</span>
+          <Icon iconName="bars" />
+        </Button>
       </div>
       <div className="navbar-search-wrapper">
         <Label for="main-search" className="sr-only">
@@ -71,6 +79,10 @@ const NavMenu = (props) => {
       </Collapse>
     </Navbar>
   );
+};
+
+NavMenu.propTypes = {
+  onClickSidebarToggleButton: PropTypes.func,
 };
 
 export default NavMenu;

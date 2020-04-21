@@ -1,26 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import Icon from '../Icon';
+import Icon from "../Icon";
 
 const SidebarMenuItem = ({ item, classNames }) => {
-  const {
-    to,
-    contentText,
-    iconName,
-  } = item;
+  const { to, contentText, iconName } = item;
   const itemClassNames = `nav-item${classNames ? " " + classNames : ""}`;
   const itemHasIcon = !!iconName;
   return (
     <li className={itemClassNames}>
       <NavLink className="nav-link" activeClassName="active" to={to} exact>
         {itemHasIcon && (
-          <Icon
-            iconName={iconName}
-            classNames="nav-link__icon"
-          />
+          <Icon iconName={iconName} classNames="nav-link__icon" />
         )}
-        {contentText}
+        <span className="nav-link__text">{contentText}</span>
       </NavLink>
     </li>
   );

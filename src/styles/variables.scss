@@ -97,6 +97,10 @@ $theme-colors: map-merge(
     "light-paper-darken": $solarized-light-darken,
     "dark": $dark,
     "text": $dark,
+    "body-bg": $solarized-light,
+    "body-color": $dark,
+    "sidebar-bg": $solarized-light-darken,
+    "sidebar-header-bg": $solarized-light-darken,
     "sidebar-menu-link": $dark,
     "sidebar-menu-link-active": $primary,
   ),
@@ -128,8 +132,8 @@ $enable-deprecation-messages: true !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg: $beige;
-$body-color: $gray-900 !default;
+$body-bg: theme-color("body-bg");
+$body-color: theme-color("body-color");
 
 // stylelint-disable value-keyword-case
 $font-family-sans-serif: "Open Sans", -apple-system, BlinkMacSystemFont,

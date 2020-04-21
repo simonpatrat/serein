@@ -1,3 +1,7 @@
+export const site = {
+  name: "Serein",
+};
+
 export const sideBarMenu = {
   title: "Menu",
   items: [
@@ -5,38 +9,38 @@ export const sideBarMenu = {
       type: "link",
       to: "/",
       contentText: "Home",
-      iconName: 'igloo',
+      iconName: "igloo",
     },
 
     {
       type: "link",
       to: "/posts",
       contentText: "Posts",
-      iconName: 'th-list',
+      iconName: "th-list",
     },
     {
       type: "link",
       to: "/categories",
       contentText: "Categories",
-      iconName: 'list',
+      iconName: "list",
     },
 
     {
       type: "submenu",
       contentText: "Pages",
-      iconName: 'sticky-note',
+      iconName: "sticky-note",
       items: [
         {
           type: "link",
           to: "/login",
           contentText: "Login",
-          iconName: 'user-lock',
+          iconName: "user-lock",
         },
         {
           type: "link",
           to: "/register",
           contentText: "Register",
-          iconName: 'user-plus',
+          iconName: "user-plus",
         },
       ],
     },

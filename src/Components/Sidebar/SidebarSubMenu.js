@@ -1,51 +1,61 @@
-import React from "react";
-import { UncontrolledCollapse, Button } from "reactstrap";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Collapse, Button } from "reactstrap";
+import classnames from "classnames";
 
-import Icon from '../Icon';
+import Icon from "../Icon";
 
 const SidebarSubMenu = ({
   item,
   classNames,
   deepnessIndex,
-  loopIndex,
   mapItemsRecusriveFunction,
 }) => {
-  const {
-    contentText,
-    iconName,
-    items,
-  } = item;
+  const { contentText, iconName, items } = item;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
   const subMenuClassNames = `${classNames || ""}`;
+  const buttonClassNames = classnames("sidebar-nav__btn--collapse", {
+    opened: isOpen,
+  });
   return (
     <li className={subMenuClassNames}>
-      <Button
-        key={`sidebar-nav-item-submenu-button-${contentText}#level${deepnessIndex}#${loopIndex}`}
-        color="lib"
-        className="sidebar-nav__btn--collapse"
-        id={`sidebar-menu-item-collapse-${deepnessIndex}-${loopIndex}`}
-      >
+      <Button color="lib" className={buttonClassNames} onClick={toggle}>
         {!!iconName && (
           <Icon
             iconName={iconName}
             classNames="sidebar-nav__btn--collapse__icon"
           />
         )}
-        <span className="sidebar-nav__btn--collapse__text">
-          {item.contentText}
-        </span>
+        <span className="sidebar-nav__btn--collapse__text">{contentText}</span>
         <Icon
-            iconName={'angle-down'}
-            classNames="sidebar-nav__btn--collapse__icon sidebar-nav__btn--collapse__icon--arrow"
+          iconName={"angle-down"}
+          classNames="sidebar-nav__btn--collapse__icon sidebar-nav__btn--collapse__icon--arrow"
         />
       </Button>
-      <UncontrolledCollapse
-        key={`sidebar-nav-item-collapse-${contentText}#level${deepnessIndex}#${loopIndex}`}
-        toggler={`sidebar-menu-item-collapse-${deepnessIndex}-${loopIndex}`}
-      >
+      <Collapse isOpen={isOpen}>
         <ul>{mapItemsRecusriveFunction(items, deepnessIndex)}</ul>
-      </UncontrolledCollapse>
+      </Collapse>
     </li>
   );
+};
+
+SidebarSubMenu.propTypes = {
+  item: PropTypes.shape({
+    contentText: PropTypes.string,
+    iconName: PropTypes.string,
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        contentText: PropTypes.string,
+        iconName: PropTypes.string,
+        items: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.object)),
+      })
+    ),
+  }),
+  classNames: PropTypes.string,
+  deepnessIndex: PropTypes.number,
+  mapItemsRecusriveFunction: PropTypes.func,
 };
 
 export default SidebarSubMenu;

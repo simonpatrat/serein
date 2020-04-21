@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { UncontrolledCollapse, Button } from "reactstrap";
+import PropTypes from "prop-types";
 
 import SidebarMenuItem from "./SidebarMenuItem";
 import SidebarSubMenu from "./SidebarSubMenu";
@@ -36,10 +35,14 @@ const mapItems = (items, deepness) => {
 
 const SidebarMenu = () => {
   return (
-    <ul className="nav flex-column sidebar-nav">
-      {mapItems(sideBarMenu.items)}
-    </ul>
+    <>
+      <ul className="nav flex-column sidebar-nav">
+        {mapItems(sideBarMenu.items)}
+      </ul>
+    </>
   );
 };
+
+SidebarMenu.propTypes = {};
 
 export default SidebarMenu;
