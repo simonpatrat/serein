@@ -1,13 +1,20 @@
-@import "bootstrap/scss/bootstrap";
 @import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
 @import "./styles/variables";
 
+@import "./styles/mixins";
+
 @import "bootstrap/scss/bootstrap";
+
+@import "./styles/themes";
 
 html {
   font-size: 14px;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--body-color);
 }
 
 .App {

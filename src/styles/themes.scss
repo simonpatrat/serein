@@ -1,0 +1,7 @@
+.theme-red {
+  @include theme("red");
+}
+
+.theme-american-palette {
+  @include theme("american-palette");
+}
